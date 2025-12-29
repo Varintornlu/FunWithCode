@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA EX02</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: aquamarine;
+    }
+
+    input {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    select {
+        margin: 5px;
+        padding: 5px;
+        position: relative;
+        left: 130px;
+    }
+
+    button {
+        margin: 5px;
+        padding: 5px;
+    }
+</style>
+
+<body>
+    <input type="text" id="firstNumber" placeholder="First Number">
+    <select id="operator">
+        <option value="add">+</option>
+        <option value="subtract">-</option>
+        <option value="multiply">*</option>
+        <option value="divide">/</option>
+        <option value="modulus">%</option>
+    </select>
+    <input type="text" id="secondNumber" placeholder="Second Number">
+    <button id="button_cal">Try me!</button>
+</body>
+<script>
+    $(document).ready(function () {
+        $("#button_cal").click(function () {
+            calculate();
+        });
+    });
+
+    setInterval(function () {
+        alert('Please, use me...');
+    }, 30000);
+
+    function calculate() {
+        let firstNumber = $("#firstNumber").val();
+        let secondNumber = $("#secondNumber").val();
+        let operator = $("#operator").val();
+        let result = 0;
+
+        let integerPattern = /^\d+$/;
+
+        if (!integerPattern.test(firstNumber) || !integerPattern.test(secondNumber)) {
+            alert("Error :(");
+            console.log("Error :(");
+            return;
+        }
+
+        firstNumber = parseInt(firstNumber);
+        secondNumber = parseInt(secondNumber);
+
+        if ((operator == "divide" || operator == "modulus") && secondNumber == 0) {
+            alert("It’s over 9000!");
+            console.log("It’s over 9000!");
+            return;
+        }
+
+        switch (operator) {
+            case "add":
+                result = firstNumber + secondNumber;
+                break;
+            case "subtract":
+                result = firstNumber - secondNumber;
+                break;
+            case "multiply":
+                result = firstNumber * secondNumber;
+                break;
+            case "divide":
+                result = firstNumber / secondNumber;
+                break;
+            case "modulus":
+                result = firstNumber % secondNumber;
+                break;
+            default:
+                alert("Error :(");
+                console.log("Error :(");
+                return;
+        }
+
+        alert("Result: " + result);
+        console.log("Result: " + result);
+    }
+</script>
+
+</html>
