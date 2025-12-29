@@ -1,3 +1,4 @@
 # FunWithCode
-9064211 FUN WITH CODING (GenEd KMITL) <br>
-42Bangkok
+> 9064211 FUN WITH CODING (GenEd KMITL)
+
+> 42Bangkok
